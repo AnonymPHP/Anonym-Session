@@ -13,7 +13,7 @@
      * Class SessionStarter
      * @package Anonym\Components\Session
      */
-    class SessionStarter
+    class SessionStarter implements SessionStarterInterface
     {
 
         /**

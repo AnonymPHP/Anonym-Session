@@ -1,0 +1,28 @@
+{
+  "name": "anonym-php/anonym-session",
+  "type": "library",
+  "description": "AnonymFramework Session Component",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git://github.com/AnonymPHP/Anonym-Session.git"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Vahit Şerif Sağlam",
+      "email": "vahit.serif119@gmail.com",
+      "homepage": "http://www.gemframework.com"
+    }
+  ],
+  "minimum-stability" : "dev",
+  "require": {
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Anonym\\Components\\Session\\": "src/Anonym/Components/"
+    }
+  }
+}

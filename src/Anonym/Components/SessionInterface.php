@@ -16,6 +16,15 @@
     interface SessionInterface
     {
 
+
+        /**
+         * $name adında bir değer olup olmadığına bakar
+         *
+         * @param string $name
+         * @return bool
+         */
+        public function has($name);
+
         /**
          * $name ile girilen oturum varmı yokmu kontrolunu yapar
          *

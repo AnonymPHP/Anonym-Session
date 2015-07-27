@@ -58,6 +58,23 @@
             $name = $this->getPrefix().$name;
             return $this->getCrypter()->encode($name);
         }
+
+        /**
+         * $name adında bir değer olup olmadığına bakar
+         *
+         * @param string $name
+         * @return bool
+         */
+        public function has($name)
+        {
+            if ($this->isValid()) {
+                $name = $this->createName($name);
+                return isset($_SESSION[$name]);
+            }else{
+                return false;
+            }
+        }
+
         /**
          * $name ile girilen oturum varmı yokmu kontrolunu yapar
          *

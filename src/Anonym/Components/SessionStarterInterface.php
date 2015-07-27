@@ -10,10 +10,10 @@
     namespace Anonym\Components\Session;
 
     /**
-     * Class SessionStarter
+     * Interface SessionStarterInterface
      * @package Anonym\Components\Session
      */
-    class SessionStarter
+    interface SessionStarterInterface
     {
 
         /**
@@ -21,11 +21,6 @@
          *
          * @return null
          */
-        public function start(){
-            $session_name = session_name();
-            if (session_start()) {
-                setcookie($session_name, session_id(), null, '/', null, null, true);
-            }
-            return null;
-        }
+        public function start();
+
     }

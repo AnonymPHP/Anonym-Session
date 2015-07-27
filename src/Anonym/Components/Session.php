@@ -40,12 +40,12 @@
         /**
          * Girilen şifrelenmiş metnin şifresini çözer
          *
-         * @param string $string
+         * @param $value $string
          * @return string
          */
-        private function decode($string = '')
+        private function decode($value = '')
         {
-            return $this->getCrypter()->decode($string);
+            return $this->getCrypter()->decode($value);
         }
 
         /**

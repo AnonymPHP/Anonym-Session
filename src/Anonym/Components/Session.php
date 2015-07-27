@@ -89,7 +89,7 @@
 
             if ($this->isValid()) {
                 $name = $this->createName($name);
-                $_SERVER[$name] = $value;
+                $_SESSION[$name] = $value;
                 return $this;
             }else{
                 return false;

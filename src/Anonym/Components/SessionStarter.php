@@ -7,5 +7,10 @@
      *
      */
 
+    namespace Anonym\Components\Session;
 
 
+    class SessionStarter
+    {
+
+    }

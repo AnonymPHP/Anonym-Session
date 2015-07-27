@@ -16,7 +16,7 @@
      * Class Session
      * @package Anonym\Components\Session
      */
-    class Session extends SessionFactory
+    class Session extends SessionFactory implements SessionInterface
     {
 
         /**
@@ -177,7 +177,4 @@
 
             return $this;
         }
-
-
-
     }

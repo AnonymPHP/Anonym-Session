@@ -16,7 +16,7 @@
      * Class Session
      * @package Anonym\Components\Session
      */
-    class Session
+    class Session extends SessionFactory
     {
 
         /**
@@ -37,6 +37,104 @@
             $this->setDefaultValues();
         }
 
+        /**
+         * Girilen şifrelenmiş metnin şifresini çözer
+         *
+         * @param string $string
+         * @return string
+         */
+        private function decode($string = '')
+        {
+            return $this->getCrypter()->decode($string);
+        }
+
+        /**
+         * Özel adı oluşturur
+         *
+         * @param string $name
+         * @return mixed
+         */
+        private function createName($name = ''){
+            $name = $this->getPrefix().$name;
+            return $this->getCrypter()->encode($name);
+        }
+        /**
+         * $name ile girilen oturum varmı yokmu kontrolunu yapar
+         *
+         * @param string $name
+         * @return mixed
+         */
+        public function get($name)
+        {
+            if($this->isValid())
+            {
+                $name = $this->createName($name);
+                if(isset($_SESSION[$name])){
+                    return $_SESSION[$name];
+                }else{
+                    return false;
+                }
+            }
+        }
+
+        /**
+         * Session a isim ve değeri atar
+         *
+         * @param string $name
+         * @param string $value
+         * @return $this|bool
+         */
+        public function set($name = '', $value = '')
+        {
+
+            if ($this->isValid()) {
+                $name = $this->createName($name);
+                $_SERVER[$name] = $value;
+                return $this;
+            }else{
+                return false;
+            }
+
+        }
+
+        /**
+         * Girilen oturum verisini siler
+         *
+         * @param string $name
+         * @return $this|bool
+         */
+        public function delete($name){
+
+            if ($this->isValid()) {
+                $name = $this->createName($name);
+                unset($_SESSION[$name]);
+
+                return $this;
+            }else{
+                return false;
+            }
+
+        }
+
+
+        /**
+         *  Tüm oturum verilerini temizler
+         */
+        public function flush(){
+
+            if ($this->isValid()) {
+
+                foreach($_SESSION as $key => $value){
+                    $value = null;
+                    $_SESSION[$key] = $value;
+                }
+            }
+
+        }
+
+        /**
+         *  Ön tanımlı değerleri ayarlar
+         */
         private function setDefaultValues(){
             $this->setPrefix('AnonymFrameworkSessionComponent');
             $this->setCrypter( new AnonymCrypt());
@@ -62,7 +160,7 @@
         }
 
         /**
-         * @return Crypter
+         * @return CrypterDecodeableInterface
          */
         public function getCrypter()
         {

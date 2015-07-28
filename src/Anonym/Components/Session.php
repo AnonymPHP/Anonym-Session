@@ -75,8 +75,11 @@
             {
                 if(isset($_SESSION[$name])){
                     $value =  $_SESSION[$name];
-                    $decode =  $this->decode($value);
-                    return $decode;
+                    if(is_string($value))
+                    {
+                        $value =  $this->decode($value);
+                    }
+                    return $value;
                 }else{
                     return false;
                 }
@@ -94,7 +97,10 @@
         {
 
             if ($this->isValid()) {
-                $value = $this->getCrypter()->encode($value);
+                if(is_string($value))
+                {
+                    $value = $this->getCrypter()->encode($value);
+                }
                 $_SESSION[$name] = $value;
                 return $this;
             }else{

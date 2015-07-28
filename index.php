@@ -7,4 +7,5 @@
      *
      */
 
+include 'vendor/autoload.php';
 

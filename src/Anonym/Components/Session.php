@@ -49,17 +49,6 @@
         }
 
         /**
-         * Özel adı oluşturur
-         *
-         * @param string $name
-         * @return mixed
-         */
-        private function createName($name = ''){
-            $name = $this->getPrefix().$name;
-            return $this->getCrypter()->encode($name);
-        }
-
-        /**
          * $name adında bir değer olup olmadığına bakar
          *
          * @param string $name
@@ -68,7 +57,6 @@
         public function has($name)
         {
             if ($this->isValid()) {
-                $name = $this->createName($name);
                 return isset($_SESSION[$name]);
             }else{
                 return false;
@@ -85,10 +73,10 @@
         {
             if($this->isValid())
             {
-                $name = $this->createName($name);
                 if(isset($_SESSION[$name])){
                     $value =  $_SESSION[$name];
-                    return $this->decode($value);
+                    $decode =  $this->decode($value);
+                    return $decode;
                 }else{
                     return false;
                 }
@@ -106,7 +94,6 @@
         {
 
             if ($this->isValid()) {
-                $name = $this->createName($name);
                 $value = $this->getCrypter()->encode($value);
                 $_SESSION[$name] = $value;
                 return $this;
@@ -125,7 +112,6 @@
         public function delete($name){
 
             if ($this->isValid()) {
-                $name = $this->createName($name);
                 unset($_SESSION[$name]);
 
                 return $this;

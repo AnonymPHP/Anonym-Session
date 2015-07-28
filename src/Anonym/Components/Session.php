@@ -106,6 +106,7 @@
 
             if ($this->isValid()) {
                 $name = $this->createName($name);
+                $value = $this->getCrypter()->encode($value);
                 $_SESSION[$name] = $value;
                 return $this;
             }else{

@@ -87,7 +87,8 @@
             {
                 $name = $this->createName($name);
                 if(isset($_SESSION[$name])){
-                    return $_SESSION[$name];
+                    $value =  $_SESSION[$name];
+                    return $this->decode($value);
                 }else{
                     return false;
                 }

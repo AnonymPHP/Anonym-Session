@@ -10,6 +10,7 @@
     namespace Anonym\Components\Session;
 
     use Anonym\Components\Crypt\AnonymCrypt;
+    use Anonym\Components\Crypt\Base64Crypt;
     use Anonym\Components\Crypt\CrypterDecodeableInterface;
 
     /**
@@ -148,7 +149,7 @@
          */
         private function setDefaultValues(){
             $this->setPrefix('AnonymFrameworkSessionComponent');
-            $this->setCrypter( new AnonymCrypt());
+            $this->setCrypter( new Base64Crypt());
         }
 
         /**

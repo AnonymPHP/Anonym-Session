@@ -84,7 +84,7 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function gc($maxlifetime)
     {
-        // TODO: Implement gc() method.
+         return true;
     }
 
     /**

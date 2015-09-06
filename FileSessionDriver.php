@@ -68,7 +68,7 @@ class FileSessionDriver implements SessionHandlerInterface
      */
     public function destroy($session_id)
     {
-        // TODO: Implement destroy() method.
+        return $this->driver->delete($this->path.$session_id);
     }
 
     /**

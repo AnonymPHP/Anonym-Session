@@ -86,7 +86,14 @@ class FileSessionDriver implements SessionHandlerInterface
      */
     public function gc($maxlifetime)
     {
-        // TODO: Implement gc() method.
+        $files = Finder::create()
+            ->in($this->path)
+            ->files()
+            ->ignoreDotFiles(true)
+            ->date('<= now - '.$maxlifetime.' seconds');
+        foreach ($files as $file) {
+            $this->files->delete($file->getRealPath());
+        }
     }
 
     /**

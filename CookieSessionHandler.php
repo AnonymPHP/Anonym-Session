@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Session;
+
 use SessionHandlerInterface;
 use Anonym\Components\Cookie\Cookie;
 
@@ -36,10 +37,12 @@ class CookieSessionHandler implements SessionHandlerInterface
      * @param Cookie $cookie
      * @param $lifetime
      */
-    public function __construct(Cookie $cookie, $lifetime){
+    public function __construct(Cookie $cookie, $lifetime)
+    {
         $this->cookie = $cookie;
         $this->lifetime = $lifetime;
     }
+
     /**
      * Close the session
      * @link http://php.net/manual/en/sessionhandlerinterface.close.php
@@ -84,7 +87,7 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function gc($maxlifetime)
     {
-         return true;
+        return true;
     }
 
     /**
@@ -100,7 +103,7 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function open($save_path, $session_id)
     {
-         return true;
+        return true;
     }
 
     /**

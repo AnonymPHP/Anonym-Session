@@ -10,14 +10,31 @@
 
 
 namespace Anonym\Components\Session;
+
+use Anonym\Components\Database\Base;
 use SessionHandlerInterface;
 
 class DatabaseSessionHandler implements SessionHandlerInterface
 {
 
 
+    /**
+     * the instance of database driver
+     *
+     * @var Base
+     */
     protected $database;
-    
+
+    /**
+     *  create an instance
+     *
+     * @param Base $base
+     */
+    public function __construct(Base $base)
+    {
+        $this->database = $base;
+    }
+
     /**
      * Close the session
      * @link http://php.net/manual/en/sessionhandlerinterface.close.php
@@ -29,7 +46,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function close()
     {
-        // TODO: Implement close() method.
+        return true;
     }
 
     /**

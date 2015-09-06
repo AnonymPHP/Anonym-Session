@@ -14,7 +14,7 @@ use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
 use Symfony\Component\Finder\Finder;
 
-class FileSessionDriver implements SessionHandlerInterface
+class FileSessionHandler implements SessionHandlerInterface
 {
 
     /**

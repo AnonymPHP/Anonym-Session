@@ -51,7 +51,7 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function close()
     {
-        // TODO: Implement close() method.
+        return true;
     }
 
     /**

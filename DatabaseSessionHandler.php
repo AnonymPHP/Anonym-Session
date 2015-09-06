@@ -15,6 +15,9 @@ use SessionHandlerInterface;
 class DatabaseSessionHandler implements SessionHandlerInterface
 {
 
+
+    protected $database;
+    
     /**
      * Close the session
      * @link http://php.net/manual/en/sessionhandlerinterface.close.php

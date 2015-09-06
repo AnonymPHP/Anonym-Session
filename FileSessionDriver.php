@@ -10,14 +10,38 @@
 
 
 namespace Anonym\Components\Session;
+use Anonym\Components\Filesystem\Adapter;
+use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
 
 class FileSessionDriver implements SessionHandlerInterface
 {
 
-    public function __construct(){
+    /**
+     * the instance of filesystem driver
+     *
+     * @var FilesystemInterface
+     */
+    protected $driver;
 
+    /**
+     * path for session files
+     *
+     * @var string
+     */
+    protected $path;
+
+    /**
+     * create a new instance
+     *
+     * @param FilesystemInterface $filesystemInterface
+     * @param string $path
+     */
+    public function __construct(FilesystemInterface $filesystemInterface, $path){
+        $this->driver = $filesystemInterface;
+        $this->path = $path;
     }
+
     /**
      * Close the session
      * @link http://php.net/manual/en/sessionhandlerinterface.close.php
@@ -29,7 +53,7 @@ class FileSessionDriver implements SessionHandlerInterface
      */
     public function close()
     {
-        // TODO: Implement close() method.
+        return true;
     }
 
     /**
@@ -78,7 +102,7 @@ class FileSessionDriver implements SessionHandlerInterface
      */
     public function open($save_path, $session_id)
     {
-        // TODO: Implement open() method.
+         return true;
     }
 
     /**
@@ -94,7 +118,11 @@ class FileSessionDriver implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        // TODO: Implement read() method.
+        if ($this->driver->has($path = $this->path.$session_id)) {
+            return $this->driver->read($path);
+        }
+
+        return '';
     }
 
     /**
@@ -116,6 +144,6 @@ class FileSessionDriver implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        // TODO: Implement write() method.
+        $this->driver->put($this->path.$session_id, $session_data);
     }
 }

@@ -39,8 +39,13 @@ class SessionManager
      */
     protected $configs;
 
+    /**
+     * create a new instance
+     *
+     * @param array $configs
+     */
     public function __construct(array $configs = []){
-
+        $this->setConfigs($configs);
     }
 
     /**

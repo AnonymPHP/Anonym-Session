@@ -70,7 +70,7 @@ class CookieSessionHandler implements SessionHandlerInterface
     public function destroy($session_id)
     {
 
-
+        $this->cookie->delete($session_id);
         return true;
     }
 

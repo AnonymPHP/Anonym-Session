@@ -12,6 +12,7 @@
 namespace Anonym\Components\Session;
 
 use Anonym\Components\Database\Base;
+use Anonym\Components\Database\Mode\Delete;
 use SessionHandlerInterface;
 
 class DatabaseSessionHandler implements SessionHandlerInterface
@@ -26,13 +27,20 @@ class DatabaseSessionHandler implements SessionHandlerInterface
     protected $database;
 
     /**
+     * @var string
+     */
+    protected $table;
+
+    /**
      *  create an instance
      *
      * @param Base $base
+     * @param string $table
      */
-    public function __construct(Base $base)
+    public function __construct(Base $base, $table)
     {
         $this->database = $base;
+        $this->table = $table;
     }
 
     /**
@@ -61,7 +69,13 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function destroy($session_id)
     {
-        // TODO: Implement destroy() method.
+        return $this->database->delete($this->table, function(Delete $delete) use($session_id){
+            $delete->where([
+                [
+                    'key', '=', $session_id
+                ]
+            ])->build()->run();
+        });
     }
 
     /**

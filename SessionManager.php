@@ -32,7 +32,12 @@ class SessionManager
      */
     protected $creators;
 
-
+    /**
+     * the all configs
+     *
+     * @var array
+     */
+    protected $configs;
 
     public function __construct(array $configs = []){
 
@@ -76,6 +81,25 @@ class SessionManager
         return $this;
     }
 
+
+    /**
+     * @return array
+     */
+    public function getConfigs()
+    {
+        return $this->configs;
+    }
+
+    /**
+     * @param array $configs
+     * @return SessionManager
+     */
+    public function setConfigs($configs)
+    {
+        $this->configs = $configs;
+
+        return $this;
+    }
 
 
 }

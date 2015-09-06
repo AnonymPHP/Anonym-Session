@@ -30,6 +30,12 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     protected $lifetime;
 
+    /**
+     * create a new instance
+     *
+     * @param Cookie $cookie
+     * @param $lifetime
+     */
     public function __construct(Cookie $cookie, $lifetime){
         $this->cookie = $cookie;
         $this->lifetime = $lifetime;

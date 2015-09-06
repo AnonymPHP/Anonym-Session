@@ -48,6 +48,9 @@ class SessionManager
         $this->setConfigs($configs);
     }
 
+    /**
+     * @param string $driver
+     */
     public function driver($driver = '')
     {
 

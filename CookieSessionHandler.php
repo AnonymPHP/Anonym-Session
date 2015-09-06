@@ -11,10 +11,29 @@
 
 namespace Anonym\Components\Session;
 use SessionHandlerInterface;
+use Anonym\Components\Cookie\Cookie;
 
 class CookieSessionHandler implements SessionHandlerInterface
 {
 
+    /**
+     * the instane of cookie
+     *
+     * @var Cookie
+     */
+    protected $cookie;
+
+    /**
+     * lifetime of int
+     *
+     * @var int
+     */
+    protected $lifetime;
+
+    public function __construct(Cookie $cookie, $lifetime){
+        $this->cookie = $cookie;
+        $this->lifetime = $lifetime;
+    }
     /**
      * Close the session
      * @link http://php.net/manual/en/sessionhandlerinterface.close.php

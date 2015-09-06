@@ -10,9 +10,9 @@
 
 
 namespace Anonym\Components\Session;
-use Anonym\Components\Filesystem\Adapter;
 use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
+use Symfony\Component\Finder\Finder;
 
 class FileSessionDriver implements SessionHandlerInterface
 {
@@ -92,7 +92,7 @@ class FileSessionDriver implements SessionHandlerInterface
             ->ignoreDotFiles(true)
             ->date('<= now - '.$maxlifetime.' seconds');
         foreach ($files as $file) {
-            $this->files->delete($file->getRealPath());
+            $this->driver->delete($file->getRealPath());
         }
     }
 

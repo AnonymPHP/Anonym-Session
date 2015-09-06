@@ -69,7 +69,9 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function destroy($session_id)
     {
-        // TODO: Implement destroy() method.
+
+
+        return true;
     }
 
     /**

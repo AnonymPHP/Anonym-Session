@@ -48,6 +48,11 @@ class SessionManager
         $this->setConfigs($configs);
     }
 
+    public function driver($driver = '')
+    {
+
+    }
+
     /**
      * @return array
      */

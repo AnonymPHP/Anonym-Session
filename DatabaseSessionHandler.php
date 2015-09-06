@@ -95,7 +95,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function open($save_path, $session_id)
     {
-        // TODO: Implement open() method.
+        return true;
     }
 
     /**

@@ -31,4 +31,51 @@ class SessionManager
      * @var array
      */
     protected $creators;
+
+
+
+    public function __construct(array $configs = []){
+
+    }
+
+    /**
+     * @return array
+     */
+    public function getDrivers()
+    {
+        return $this->drivers;
+    }
+
+    /**
+     * @param array $drivers
+     * @return SessionManager
+     */
+    public function setDrivers($drivers)
+    {
+        $this->drivers = $drivers;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCreators()
+    {
+        return $this->creators;
+    }
+
+    /**
+     * @param array $creators
+     * @return SessionManager
+     */
+    public function setCreators($creators)
+    {
+        $this->creators = $creators;
+
+        return $this;
+    }
+
+
+
 }

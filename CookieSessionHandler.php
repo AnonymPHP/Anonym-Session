@@ -119,7 +119,7 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        // TODO: Implement read() method.
+        return $this->cookie->has($session_id) ? $this->cookie->get($session_id) : null;
     }
 
     /**
@@ -141,6 +141,8 @@ class CookieSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        // TODO: Implement write() method.
+        $this->cookie->set($session_id, $session_data, $this->lifetime);
+
+        return true;
     }
 }

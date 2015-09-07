@@ -60,7 +60,7 @@ class SessionManager
         if (isset($this->drivers[$driver])) {
 
             $dClass = $this->drivers[$driver];
-
+            $driver = $this->buildDriver($driver, $dClass);
         }
 
     }

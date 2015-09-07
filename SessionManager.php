@@ -30,6 +30,12 @@ class SessionManager
     ];
 
     /**
+     * the list of session callbacks
+     *
+     * @var array
+     */
+    protected $extends;
+    /**
      * the list of driver creator
      *
      * @var array
@@ -73,6 +79,9 @@ class SessionManager
 
         if (method_exists($this, $instanceCallback)) {
             return $this->$instanceCallback();
+        } elseif (isset($this->extends[$name])) {
+            $callback = $this->extends[$name];
+
         }
     }
 

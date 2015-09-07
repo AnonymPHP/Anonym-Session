@@ -193,5 +193,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
             });
         }
 
+        return $return ? true : false;
+
     }
 }

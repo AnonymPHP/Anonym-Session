@@ -171,13 +171,13 @@ class DatabaseSessionHandler implements SessionHandlerInterface
             ])->build();
         });
 
-        if(!$count->rowCount()){
+        if (!$count->rowCount()) {
 
 
-            $return =  $this->database->insert($this->table, function (Insert $insert) use ($session_id, $session_data) {
+            $return = $this->database->insert($this->table, function (Insert $insert) use ($session_id, $session_data) {
                 $insert->set([
                     'key' => $session_id,
-                    'value' => $session_data
+                    'value' => $session_data,
                 ])->build()->run();
             });
         }

@@ -23,7 +23,11 @@ class SessionManager
      *
      * @var array
      */
-    protected $drivers;
+    protected $drivers = [
+        'file' => FileSessionHandler::class,
+        'database' => DatabaseSessionHandler::class,
+        CookieSessionHandler::class
+    ];
 
     /**
      * the list of driver creator
@@ -53,6 +57,11 @@ class SessionManager
      */
     public function driver($driver = '')
     {
+        if (isset($this->drivers[$driver])) {
+
+            $dClass = $this->drivers[$driver];
+
+        }
 
     }
 

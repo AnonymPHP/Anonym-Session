@@ -130,8 +130,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        $return = $this->database->read($this->table, function (Read $read) {
-
+        $return = $this->database->read($this->table, function (Read $read) use ($session_id) {
+            $read->where([
+                ['key', '=', $session_id],
+            ]);
         });
     }
 

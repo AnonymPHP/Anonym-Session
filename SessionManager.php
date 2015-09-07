@@ -65,15 +65,21 @@ class SessionManager
     public function driver($driver = '')
     {
         if (isset($this->drivers[$driver])) {
+            $driver = $this->buildDriver($driver);
 
-            $dClass = $this->drivers[$driver];
-            $driver = $this->buildDriver($driver, $dClass);
+            return $this->initalizeDriver($driver);
+        }else{
+            throw new DriverNotFoundException(sprintf('%s driver is not found', $driver));
         }
 
     }
 
-
-    private function buildDriver($name, $class)
+    /**
+     * @param string $name
+     * @param string $class
+     * @return mixed
+     */
+    private function buildDriver($name)
     {
         $instanceCallback = $this->createCallbackName($name);
 
@@ -81,7 +87,7 @@ class SessionManager
             return $this->$instanceCallback();
         } elseif (isset($this->extends[$name])) {
             $callback = $this->extends[$name];
-
+            return $callback($this->configs);
         }
     }
 

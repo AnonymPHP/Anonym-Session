@@ -78,10 +78,16 @@ class SessionManager
     }
 
 
+    /**
+     * @param \SessionHandlerInterface $handler
+     * @return EncryptedStroge|Stroge
+     */
     private function initalizeDriver($handler)
     {
         if ($this->configs['encrypt']) {
-
+            return new EncryptedStroge($this->configs, $handler);
+        }else{
+            return new Stroge($this->configs, $handler);
         }
     }
 

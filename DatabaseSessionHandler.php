@@ -180,8 +180,13 @@ class DatabaseSessionHandler implements SessionHandlerInterface
                 ])->build()->run();
             });
         } else {
-            $return = $this->database->update($this->table, function (Update $update) {
-
+            $return = $this->database->update($this->table, function (Update $update) use ($session_id, $session_data) {
+                return $update->where([
+                    [
+                        'key',
+                        '=',
+                    ],
+                ])
             });
         }
 

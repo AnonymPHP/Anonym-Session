@@ -69,7 +69,16 @@ class SessionManager
 
     private function buildDriver($name, $class)
     {
+        $instanceCallback = $this->createCallbackName($name);
 
+        if (method_exists($this, $instanceCallback)) {
+            return $this->$instanceCallback();
+        }
+    }
+
+    private function createCallbackName($name)
+    {
+        return "create".ucfirst($name)."Driver";
     }
 
     /**

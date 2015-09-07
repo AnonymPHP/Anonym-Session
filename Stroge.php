@@ -15,4 +15,5 @@ namespace Anonym\Components\Session;
 class Stroge
 {
 
+
 }

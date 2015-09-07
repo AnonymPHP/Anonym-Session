@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Session;
 
-
+/**
+ * Class EncryptedStroge
+ * @package Anonym\Components\Session
+ */
 class EncryptedStroge
 {
 

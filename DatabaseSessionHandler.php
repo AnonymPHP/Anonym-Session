@@ -167,7 +167,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
     {
 
         $count = $this->database->read($this->table, function (Read $read) use ($session_id) {
-            $read->where([
+            return $read->where([
                 ['key', '=', $session_id],
             ])->build();
         });

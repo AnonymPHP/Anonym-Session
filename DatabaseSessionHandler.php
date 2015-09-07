@@ -164,8 +164,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        return $this->database->insert($this->table, function (Insert $insert) {
-
+        return $this->database->insert($this->table, function (Insert $insert) use ($session_id, $session_data) {
+            $insert->set([
+                'key' =>
+            ])
         });
     }
 }

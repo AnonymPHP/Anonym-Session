@@ -10,9 +10,13 @@
 
 
 namespace Anonym\Components\Session;
+use Exception;
 
-
-class DriverNotFoundException
+/**
+ * Class DriverNotFoundException
+ * @package Anonym\Components\Session
+ */
+class DriverNotFoundException extends Exception
 {
 
 }

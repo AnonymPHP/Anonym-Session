@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Session;
+
 use Exception;
 
 /**
@@ -19,7 +20,8 @@ use Exception;
 class DriverNotFoundException extends Exception
 {
 
-    public function __construct($message = ''){
+    public function __construct($message = '')
+    {
         $this->message = $message;
     }
 

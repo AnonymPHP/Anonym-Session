@@ -12,8 +12,10 @@
 namespace Anonym\Components\Session;
 
 use Anonym\Components\Database\Base;
+use Anonym\Components\Database\Managers\BuildManager;
 use Anonym\Components\Database\Mode\Delete;
 use Anonym\Components\Database\Mode\Read;
+use Anonym\Components\Database\Mode\Insert;
 use SessionHandlerInterface;
 
 class DatabaseSessionHandler implements SessionHandlerInterface
@@ -133,8 +135,14 @@ class DatabaseSessionHandler implements SessionHandlerInterface
         $return = $this->database->read($this->table, function (Read $read) use ($session_id) {
             $read->where([
                 ['key', '=', $session_id],
-            ]);
+            ])->build();
         });
+
+        if ($return instanceof BuildManager) {
+            return $return->rowCount() ? $return->fetch()->value : '';
+        }
+
+        return '';
     }
 
     /**
@@ -156,6 +164,8 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        // TODO: Implement write() method.
+        return $this->database->insert($this->table, function (Insert $insert) {
+
+        });
     }
 }

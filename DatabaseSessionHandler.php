@@ -13,6 +13,7 @@ namespace Anonym\Components\Session;
 
 use Anonym\Components\Database\Base;
 use Anonym\Components\Database\Mode\Delete;
+use Anonym\Components\Database\Mode\Read;
 use SessionHandlerInterface;
 
 class DatabaseSessionHandler implements SessionHandlerInterface
@@ -69,13 +70,17 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function destroy($session_id)
     {
-        return $this->database->delete($this->table, function(Delete $delete) use($session_id){
+        $return = $this->database->delete($this->table, function (Delete $delete) use ($session_id) {
             $delete->where([
                 [
-                    'key', '=', $session_id
-                ]
+                    'key',
+                    '=',
+                    $session_id,
+                ],
             ])->build()->run();
         });
+
+        return $return ? true : false;
     }
 
     /**
@@ -125,7 +130,9 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        // TODO: Implement read() method.
+        $return = $this->database->read($this->table, function (Read $read) {
+
+        });
     }
 
     /**

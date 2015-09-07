@@ -185,8 +185,11 @@ class DatabaseSessionHandler implements SessionHandlerInterface
                     [
                         'key',
                         '=',
+                        $session_id,
                     ],
-                ])
+                ])->set([
+                    'value' => $session_data,
+                ])->run();
             });
         }
 

@@ -164,10 +164,23 @@ class DatabaseSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        return $this->database->insert($this->table, function (Insert $insert) use ($session_id, $session_data) {
-            $insert->set([
-                'key' =>
-            ])
+
+        $count = $this->database->read($this->table, function (Read $read) use ($session_id) {
+            $read->where([
+                ['key', '=', $session_id],
+            ])->build();
         });
+
+        if(!$count->rowCount()){
+
+
+            $return =  $this->database->insert($this->table, function (Insert $insert) use ($session_id, $session_data) {
+                $insert->set([
+                    'key' => $session_id,
+                    'value' => $session_data
+                ])->build()->run();
+            });
+        }
+
     }
 }

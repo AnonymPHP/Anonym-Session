@@ -26,7 +26,7 @@ class SessionManager
     protected $drivers = [
         'file' => FileSessionHandler::class,
         'database' => DatabaseSessionHandler::class,
-        CookieSessionHandler::class
+        CookieSessionHandler::class,
     ];
 
     /**
@@ -48,7 +48,8 @@ class SessionManager
      *
      * @param array $configs
      */
-    public function __construct(array $configs = []){
+    public function __construct(array $configs = [])
+    {
         $this->setConfigs($configs);
     }
 
@@ -62,6 +63,12 @@ class SessionManager
             $dClass = $this->drivers[$driver];
             $driver = $this->buildDriver($driver, $dClass);
         }
+
+    }
+
+
+    private function buildDriver($name, $class)
+    {
 
     }
 

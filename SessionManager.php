@@ -60,7 +60,11 @@ class SessionManager
     }
 
     /**
+     * create driver
+     *
      * @param string $driver
+     * @throws DriverNotFoundException
+     * @return Stroge
      */
     public function driver($driver = '')
     {
@@ -68,10 +72,17 @@ class SessionManager
             $driver = $this->buildDriver($driver);
 
             return $this->initalizeDriver($driver);
-        }else{
+        } else {
             throw new DriverNotFoundException(sprintf('%s driver is not found', $driver));
         }
+    }
 
+
+    private function initalizeDriver($handler)
+    {
+        if ($this->configs['encrypt']) {
+
+        }
     }
 
     /**
@@ -87,6 +98,7 @@ class SessionManager
             return $this->$instanceCallback();
         } elseif (isset($this->extends[$name])) {
             $callback = $this->extends[$name];
+
             return $callback($this->configs);
         }
     }

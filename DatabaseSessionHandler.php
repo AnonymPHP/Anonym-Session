@@ -15,6 +15,7 @@ use Anonym\Components\Database\Base;
 use Anonym\Components\Database\Managers\BuildManager;
 use Anonym\Components\Database\Mode\Delete;
 use Anonym\Components\Database\Mode\Read;
+use Anonym\Components\Database\Mode\Update;
 use Anonym\Components\Database\Mode\Insert;
 use SessionHandlerInterface;
 
@@ -172,13 +173,15 @@ class DatabaseSessionHandler implements SessionHandlerInterface
         });
 
         if (!$count->rowCount()) {
-
-
             $return = $this->database->insert($this->table, function (Insert $insert) use ($session_id, $session_data) {
-                $insert->set([
+                return $insert->set([
                     'key' => $session_id,
                     'value' => $session_data,
                 ])->build()->run();
+            });
+        } else {
+            $return = $this->database->update($this->table, function (Update $update) {
+
             });
         }
 

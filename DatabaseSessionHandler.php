@@ -74,7 +74,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface
     public function destroy($session_id)
     {
         $return = $this->database->delete($this->table, function (Delete $delete) use ($session_id) {
-            $delete->where([
+            return $delete->where([
                 [
                     'key',
                     '=',

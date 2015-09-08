@@ -62,6 +62,13 @@ class SessionManager
         $this->setConfigs($configs);
     }
 
+    /**
+     * extend a new driver
+     *
+     * @param string $name
+     * @param Closure $closure
+     * @return $this
+     */
     public function extend($name = '', Closure $closure)
     {
         $this->creators[$name] = $closure;

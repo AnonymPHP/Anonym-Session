@@ -13,6 +13,7 @@ namespace Anonym\Components\Session;
 
 use Anonym\Components\Cookie\Cookie;
 use Closure;
+
 /**
  * Class SessionManager
  * @package Anonym\Components\Session
@@ -63,8 +64,8 @@ class SessionManager
 
     public function extend($name = '', Closure $closure)
     {
-
-    }
+        $this->
+            }
 
     /**
      * create driver
@@ -93,7 +94,7 @@ class SessionManager
     {
         if ($this->configs['encrypt']) {
             return new EncryptedStroge($this->configs, $handler);
-        }else{
+        } else {
             return new Stroge($this->configs, $handler);
         }
     }

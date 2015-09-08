@@ -116,7 +116,7 @@ class Stroge implements StrogeInterface
      */
     public function delete($name)
     {
-        // TODO: Implement delete() method.
+
     }
 
     /**

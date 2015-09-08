@@ -105,7 +105,7 @@ class Stroge implements StrogeInterface
      */
     public function set($name = '', $value, $time = 0)
     {
-        // TODO: Implement set() method.
+
     }
 
     /**

@@ -115,6 +115,7 @@ class Stroge implements StrogeInterface
      *
      * @param string $name the name of session
      * @param bool|false $crypt
+     * @return string|false
      */
     protected function readFromHandler($name, $crypt = false)
     {

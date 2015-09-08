@@ -84,6 +84,7 @@ class Stroge implements StrogeInterface
         return $this;
     }
 
+
     /**
      * return a registered session, return false on session not found
      *

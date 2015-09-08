@@ -38,7 +38,8 @@ class Stroge
      */
     public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null)
     {
-
+        $this->setConfigs($configs);
+        $this->setHandler($handlerInterface);
     }
 
     /**

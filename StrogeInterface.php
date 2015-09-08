@@ -12,7 +12,7 @@
 namespace Anonym\Components\Session;
 
 
-class StrogeInterface
+interface StrogeInterface
 {
 
 }

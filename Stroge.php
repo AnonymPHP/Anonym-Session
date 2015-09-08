@@ -128,6 +128,10 @@ class Stroge implements StrogeInterface
         return $value;
     }
 
+
+    protected function registerToHandler($name, $value, $crypt = false){
+
+}
     /**
      * return a registered session, return false on session not found
      *

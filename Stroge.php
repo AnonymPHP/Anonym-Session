@@ -54,7 +54,7 @@ class Stroge
      * @param SessionHandlerInterface $handler
      * @return Stroge
      */
-    public function setHandler($handler)
+    public function setHandler(SessionHandlerInterface $handler)
     {
         $this->handler = $handler;
 

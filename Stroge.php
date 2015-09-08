@@ -126,6 +126,6 @@ class Stroge implements StrogeInterface
      */
     public function flush()
     {
-        // TODO: Implement flush() method.
+
     }
 }

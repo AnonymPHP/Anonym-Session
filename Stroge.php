@@ -132,6 +132,8 @@ class Stroge implements StrogeInterface
 
 
     /**
+     * register a new session to handler
+     *
      * @param string $name
      * @param mixed $value
      * @param bool|false $crypt

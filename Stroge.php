@@ -172,6 +172,8 @@ class Stroge implements StrogeInterface
     public function set($name = '', $value)
     {
         $this->registerToHandler($name, $value, false);
+
+        return $this;
     }
 
     /**
@@ -182,7 +184,9 @@ class Stroge implements StrogeInterface
      */
     public function delete($name)
     {
+        $this->getHandler()->destroy($name);
 
+        return $this;
     }
 
     /**

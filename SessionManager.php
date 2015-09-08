@@ -11,6 +11,8 @@
 
 namespace Anonym\Components\Session;
 
+use Anonym\Components\Cookie\Cookie;
+
 /**
  * Class SessionManager
  * @package Anonym\Components\Session
@@ -109,10 +111,17 @@ class SessionManager
         }
     }
 
+    /**
+     * create driver installer method name
+     *
+     * @param string $name
+     * @return string
+     */
     private function createCallbackName($name)
     {
         return "create".ucfirst($name)."Driver";
     }
+
 
     /**
      * @return array

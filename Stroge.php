@@ -34,6 +34,8 @@ class Stroge implements StrogeInterface
      */
     private $configs;
 
+
+
     /**
      * the instance of anonym crypt
      *
@@ -91,6 +93,24 @@ class Stroge implements StrogeInterface
     }
 
     /**
+     * @return AnonymCrypt
+     */
+    public function getCrypt()
+    {
+        return $this->crypt;
+    }
+
+    /**
+     * @param AnonymCrypt $crypt
+     * @return Stroge
+     */
+    public function setCrypt(AnonymCrypt $crypt)
+    {
+        $this->crypt = $crypt;
+
+        return $this;
+    }
+    /**
      * read a session from session handle
      *
      * @param string $name the name of session
@@ -98,7 +118,13 @@ class Stroge implements StrogeInterface
      */
     protected function readFromHandler($name, $crypt = false)
     {
+        $value = $this->getHandler()->read($name);
 
+        if (true === $crypt) {
+            $value = $this->getCrypt()->decode($value);
+        }
+
+        return $value;
     }
 
     /**

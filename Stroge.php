@@ -131,6 +131,11 @@ class Stroge implements StrogeInterface
     }
 
 
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @param bool|false $crypt
+     */
     protected function registerToHandler($name, $value, $crypt = false)
     {
 

@@ -92,7 +92,7 @@ class Stroge implements StrogeInterface
      */
     public function get($name)
     {
-        // TODO: Implement get() method.
+
     }
 
     /**

@@ -17,7 +17,7 @@ use SessionHandlerInterface;
  * Class Stroge
  * @package Anonym\Components\Session
  */
-class Stroge
+class Stroge implements StrogeInterface
 {
 
     /**

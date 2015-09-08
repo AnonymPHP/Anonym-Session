@@ -13,6 +13,7 @@ namespace Anonym\Components\Session;
 
 use SessionHandlerInterface;
 use Anonym\Components\Crypt\AnonymCrypt;
+
 /**
  * Class Stroge
  * @package Anonym\Components\Session
@@ -35,13 +36,13 @@ class Stroge implements StrogeInterface
     private $configs;
 
 
-
     /**
      * the instance of anonym crypt
      *
      * @var AnonymCrypt
      */
     protected $crypt;
+
     /**
      * create a new instance and save handler settings
      *
@@ -110,6 +111,7 @@ class Stroge implements StrogeInterface
 
         return $this;
     }
+
     /**
      * read a session from session handle
      *
@@ -129,9 +131,11 @@ class Stroge implements StrogeInterface
     }
 
 
-    protected function registerToHandler($name, $value, $crypt = false){
+    protected function registerToHandler($name, $value, $crypt = false)
+    {
 
-}
+    }
+
     /**
      * return a registered session, return false on session not found
      *

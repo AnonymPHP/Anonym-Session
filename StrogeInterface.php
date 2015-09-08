@@ -50,5 +50,4 @@ interface StrogeInterface
      * @return $this
      */
     public function flush();
-
 }

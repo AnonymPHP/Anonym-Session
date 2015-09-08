@@ -64,8 +64,10 @@ class SessionManager
 
     public function extend($name = '', Closure $closure)
     {
-        $this->
-            }
+        $this->creators[$name] = $closure;
+
+        return $this;
+    }
 
     /**
      * create driver

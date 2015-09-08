@@ -12,7 +12,7 @@
 namespace Anonym\Components\Session;
 
 use Anonym\Components\Cookie\Cookie;
-
+use Closure;
 /**
  * Class SessionManager
  * @package Anonym\Components\Session
@@ -59,6 +59,11 @@ class SessionManager
     public function __construct(array $configs = [])
     {
         $this->setConfigs($configs);
+    }
+
+    public function extend($name = '', Closure $closure)
+    {
+
     }
 
     /**

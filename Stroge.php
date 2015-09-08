@@ -13,6 +13,10 @@ namespace Anonym\Components\Session;
 
 use SessionHandlerInterface;
 
+/**
+ * Class Stroge
+ * @package Anonym\Components\Session
+ */
 class Stroge
 {
 

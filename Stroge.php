@@ -167,12 +167,11 @@ class Stroge implements StrogeInterface
      *
      * @param string $name the name of session
      * @param mixed $value the value of session, the value can be string, object, integer ...
-     * @param int $time if your driver support this, you can use it
      * @return $this
      */
-    public function set($name = '', $value, $time = 0)
+    public function set($name = '', $value)
     {
-
+        $this->registerToHandler($name, $value, false);
     }
 
     /**

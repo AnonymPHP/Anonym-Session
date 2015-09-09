@@ -16,6 +16,13 @@ use SessionHandlerInterface;
 class CacheSessionHandler implements SessionHandlerInterface
 {
 
+    protected $cache;
+
+    public function __construct($cache)
+    {
+        $this->cache = $cache;
+    }
+
     /**
      * Close the session
      * @link http://php.net/manual/en/sessionhandlerinterface.close.php

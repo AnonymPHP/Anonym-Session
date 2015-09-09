@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Session;
+
 use SessionHandlerInterface;
 
 class CacheSessionHandler implements SessionHandlerInterface

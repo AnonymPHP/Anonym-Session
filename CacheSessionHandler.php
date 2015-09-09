@@ -10,15 +10,25 @@
 
 
 namespace Anonym\Components\Session;
-
+use Anonym\Components\Cache\DriverAdapterInterface as CacheDriverInterface;
 use SessionHandlerInterface;
 
 class CacheSessionHandler implements SessionHandlerInterface
 {
 
+    /**
+     * the instance of cache driver
+     *
+     * @var CacheDriverInterface
+     */
     protected $cache;
 
-    public function __construct($cache)
+    /**
+     * create a new instance and register the cache driver
+     *
+     * @param CacheDriverInterface $cache
+     */
+    public function __construct(CacheDriverInterface $cache)
     {
         $this->cache = $cache;
     }
@@ -99,7 +109,7 @@ class CacheSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-
+        return $this->cache->get($session_id);
     }
 
     /**

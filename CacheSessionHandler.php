@@ -42,7 +42,7 @@ class CacheSessionHandler implements SessionHandlerInterface
      */
     public function destroy($session_id)
     {
-        // TODO: Implement destroy() method.
+
     }
 
     /**
@@ -60,7 +60,7 @@ class CacheSessionHandler implements SessionHandlerInterface
      */
     public function gc($maxlifetime)
     {
-        // TODO: Implement gc() method.
+
     }
 
     /**
@@ -92,7 +92,7 @@ class CacheSessionHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        // TODO: Implement read() method.
+
     }
 
     /**
@@ -114,6 +114,6 @@ class CacheSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        // TODO: Implement write() method.
+
     }
 }

@@ -132,6 +132,6 @@ class CacheSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-
+        $this->cache->set($session_id, $session_data);
     }
 }

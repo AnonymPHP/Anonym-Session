@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Session;
+
 use Anonym\Components\Cache\DriverAdapterInterface as CacheDriverInterface;
 use SessionHandlerInterface;
 

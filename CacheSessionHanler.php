@@ -12,7 +12,7 @@
 namespace Anonym\Components\Session;
 
 
-class CacheSessionHanler
+class CacheSessionHandler
 {
 
 }

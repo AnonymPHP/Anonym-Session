@@ -15,6 +15,10 @@ use Anonym\Components\Cache\DriverAdapterInterface as CacheDriverInterface;
 use Anonym\Components\Cache\FlushableInterface;
 use SessionHandlerInterface;
 
+/**
+ * Class CacheSessionHandler
+ * @package Anonym\Components\Session
+ */
 class CacheSessionHandler implements SessionHandlerInterface
 {
 

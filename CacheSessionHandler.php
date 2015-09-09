@@ -65,7 +65,8 @@ class CacheSessionHandler implements SessionHandlerInterface
      */
     public function destroy($session_id)
     {
-
+        $this->cache->delete($session_id);
+        return true;
     }
 
     /**

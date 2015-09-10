@@ -61,7 +61,9 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        Session::extend('cache', function)
+        Session::extend('cache', function(array $configs = []){
+
+        });
 
     }
 

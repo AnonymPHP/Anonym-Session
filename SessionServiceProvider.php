@@ -40,6 +40,9 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
+        Session::extend('database', function(array $configs = []){
+
+        });
 
     }
 

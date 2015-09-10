@@ -38,7 +38,7 @@ class SessionServiceProvider extends ServiceProvider
                 $lifetime = Arr::get($configs, 'cookie.lifetime', 1800);
 
                 $cookie = App::make('cookie');
-                return new CookieSessionHandler($configs, $lifetime);
+                return new CookieSessionHandler($cookie, $lifetime);
             }
         );
 

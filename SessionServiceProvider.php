@@ -26,15 +26,19 @@ class SessionServiceProvider extends ServiceProvider
     /**
      * register the provider
      */
-    public function register(){
+    public function register()
+    {
 
 
-        Session::extend('cookie', function(array $configs = []){
-            $lifetime = Arr::get($configs, 'cookie.lifetime', 1800);
+        Session::extend(
+            'cookie',
+            function (array $configs = []) {
+                $lifetime = Arr::get($configs, 'cookie.lifetime', 1800);
 
-            $cookie = App::make('cookie');
-            return new CookieSessionHandler($configs, $lifetime);
-        });
+                $cookie = App::make('cookie');
+                return new CookieSessionHandler($configs, $lifetime);
+            }
+        );
 
 
     }

@@ -66,9 +66,7 @@ class SessionServiceProvider extends ServiceProvider
         $session->extend(
             'cache',
             function () {
-                $configs = Config::get('stroge.cache');
-                $driver = isset($configs['driver']) ? $configs['driver'] : '';
-                return new CacheSessionHandler((new Cache())->driver($driver, $configs));
+                return App::make('cache');
             }
         );
 

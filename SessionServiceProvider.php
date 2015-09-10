@@ -41,7 +41,10 @@ class SessionServiceProvider extends ServiceProvider
         );
 
         Session::extend('database', function(array $configs = []){
+            $table = Arr::get($configs, 'database.table');
 
+            $base = App::make('database.base');
+            return new DatabaseSessionHandler($base, $table);
         });
 
     }

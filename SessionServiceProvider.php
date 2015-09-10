@@ -78,10 +78,13 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        $this->singleton('session.stroge', function(){
-             $driver = Config::get('stroge.session.driver');
+        $this->singleton(
+            'session.stroge',
+            function () {
+                $driver = Config::get('stroge.session.driver');
 
-            return App::make('session')->driver($driver);
-        });
+                return App::make('session')->driver($driver);
+            }
+        );
     }
 }

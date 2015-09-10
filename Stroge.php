@@ -203,4 +203,14 @@ class Stroge implements StrogeInterface
 
         return isset($value) ? $value : false;
     }
+
+    /**
+     * clear the all sessions
+     *
+     * @return $this
+     */
+    public function flush()
+    {
+         // do nothing
+    }
 }

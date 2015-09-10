@@ -15,4 +15,8 @@ use Anonym\Bootstrap\ServiceProvider;
 class SessionServiceProvider extends ServiceProvider
 {
 
+    public function register(){
+
+    }
+
 }

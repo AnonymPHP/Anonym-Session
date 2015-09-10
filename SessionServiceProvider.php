@@ -17,6 +17,7 @@ use Anonym\Support\Arr;
 use Anonym\Facades\App;
 use Anonym\Facades\Stroge;
 use Anonym\Components\Cache\Cache;
+
 /**
  * Class SessionServiceProvider
  * @package Anonym\Components\Session
@@ -70,8 +71,11 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        $this->singleton('session', function(){
-            return new SessionManager(Config::get('stroge.session'));
-        });
+        $this->singleton(
+            'session',
+            function () {
+                return new SessionManager(Config::get('stroge.session'));
+            }
+        );
     }
 }

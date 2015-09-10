@@ -11,7 +11,6 @@
 namespace Anonym\Components\Session;
 
 use Anonym\Bootstrap\ServiceProvider;
-use Anonym\Facades\Session;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 use Anonym\Facades\App;

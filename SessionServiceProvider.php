@@ -12,9 +12,16 @@ namespace Anonym\Components\Session;
 
 use Anonym\Bootstrap\ServiceProvider;
 
+/**
+ * Class SessionServiceProvider
+ * @package Anonym\Components\Session
+ */
 class SessionServiceProvider extends ServiceProvider
 {
 
+    /**
+     * register the provider
+     */
     public function register(){
 
     }

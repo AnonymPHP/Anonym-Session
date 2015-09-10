@@ -14,6 +14,10 @@ use League\Flysystem\FilesystemInterface;
 use SessionHandlerInterface;
 use Symfony\Component\Finder\Finder;
 
+/**
+ * Class FileSessionHandler
+ * @package Anonym\Components\Session
+ */
 class FileSessionHandler implements SessionHandlerInterface
 {
 
@@ -40,6 +44,7 @@ class FileSessionHandler implements SessionHandlerInterface
     public function __construct(FilesystemInterface $filesystemInterface, $path){
         $this->driver = $filesystemInterface;
         $this->path = $path;
+
     }
 
     /**
@@ -109,7 +114,7 @@ class FileSessionHandler implements SessionHandlerInterface
      */
     public function open($save_path, $session_id)
     {
-         return true;
+        return true;
     }
 
     /**
@@ -151,6 +156,10 @@ class FileSessionHandler implements SessionHandlerInterface
      */
     public function write($session_id, $session_data)
     {
-        $this->driver->put($this->path.$session_id, $session_data);
+        if(!$this->driver->has($path = $this->path.$session_id)){
+            $this->driver->create($path);
+        }
+
+        return $this->driver->put($path, $session_data);
     }
 }

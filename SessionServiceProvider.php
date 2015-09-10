@@ -56,10 +56,12 @@ class SessionServiceProvider extends ServiceProvider
             function (array $configs = []) {
                 $filesystem = Stroge::disk('local');
 
-                $path = RESOURCE . 'sessions/';
+                $path = Arr::get($configs, 'file.path', RESOURCE. 'sessions/');
                 return new FileSessionHandler($filesystem, $path);
             }
         );
+
+        Session::extend('cache', function)
 
     }
 

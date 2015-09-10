@@ -193,12 +193,14 @@ class Stroge implements StrogeInterface
     }
 
     /**
-     * clear the all sessions
+     * check the value is exists
      *
-     * @return $this
+     * @return mixed
      */
-    public function flush()
+    public function has($name)
     {
+        $value = $this->get($name);
 
+        return isset($value) ? $value : false;
     }
 }

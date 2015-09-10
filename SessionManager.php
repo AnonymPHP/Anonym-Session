@@ -12,6 +12,8 @@
 namespace Anonym\Components\Session;
 
 use Anonym\Components\Cookie\Cookie;
+use Anonym\Components\Crypt\AnonymCrypt;
+
 use Closure;
 
 /**
@@ -46,13 +48,21 @@ class SessionManager
     protected $configs;
 
     /**
+     * the instance of cryper
+     *
+     * @var AnonymCrypt
+     */
+    private $crypt;
+
+    /**
      * create a new instance
      *
      * @param array $configs
      */
-    public function __construct(array $configs = [])
+    public function __construct(array $configs = [], AnonymCrypt $crypt = null)
     {
         $this->setConfigs($configs);
+        $this->crypt = $crypt;
     }
 
     /**

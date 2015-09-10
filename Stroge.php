@@ -49,10 +49,11 @@ class Stroge implements StrogeInterface
      * @param array $configs all settings of the handler
      * @param SessionHandlerInterface|null $handlerInterface the instance of  the handler
      */
-    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null)
+    public function __construct(array $configs = [], SessionHandlerInterface $handlerInterface = null,AnonymCrypt $crypt = null)
     {
         $this->setConfigs($configs);
         $this->setHandler($handlerInterface);
+        $this->setCrypt($crypt);
     }
 
     /**

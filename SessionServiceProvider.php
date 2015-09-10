@@ -16,6 +16,7 @@ use Anonym\Support\Arr;
 use Anonym\Facades\App;
 use Anonym\Facades\Stroge;
 use Anonym\Components\Cache\Cache;
+use Anonym\Components\Cookie\Cookie;
 
 /**
  * Class SessionServiceProvider
@@ -37,7 +38,7 @@ class SessionServiceProvider extends ServiceProvider
             function (array $configs = []) {
                 $lifetime = Arr::get($configs, 'cookie.lifetime', 1800);
 
-                $cookie = App::make('cookie');
+                $cookie = App::make(Cookie::class);
                 return new CookieSessionHandler($cookie, $lifetime);
             }
         );

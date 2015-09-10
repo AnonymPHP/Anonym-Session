@@ -105,9 +105,9 @@ class SessionManager
     private function initalizeDriver($handler)
     {
         if ($this->configs['encrypt']) {
-            return new EncryptedStroge($this->configs, $handler);
+            return new EncryptedStroge($this->configs, $handler, $this->crypt);
         } else {
-            return new Stroge($this->configs, $handler);
+            return new Stroge($this->configs, $handler, $this->crypt);
         }
     }
 

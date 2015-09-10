@@ -27,9 +27,7 @@ class SessionManager
      * @var array
      */
     protected $drivers = [
-        'file' => FileSessionHandler::class,
-        'database' => DatabaseSessionHandler::class,
-        CookieSessionHandler::class,
+
     ];
 
     /**

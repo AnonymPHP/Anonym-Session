@@ -17,7 +17,7 @@ use Anonym\Facades\App;
 use Anonym\Facades\Stroge;
 use Anonym\Components\Cache\Cache;
 use Anonym\Components\Cookie\Cookie;
-
+use Anonym\Components\Crypt\Crypter;
 /**
  * Class SessionServiceProvider
  * @package Anonym\Components\Session
@@ -31,7 +31,7 @@ class SessionServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $session = new SessionManager(Config::get('stroge.session'), App::make('crypt'));
+        $session = new SessionManager(Config::get('stroge.session'), App::make(Crypter::class));
 
         $session->extend(
             'cookie',

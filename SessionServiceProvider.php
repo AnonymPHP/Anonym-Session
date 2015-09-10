@@ -15,7 +15,7 @@ use Anonym\Facades\Session;
 use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 use Anonym\Facades\App;
-
+use Anonym\Facades\Stroge;
 /**
  * Class SessionServiceProvider
  * @package Anonym\Components\Session
@@ -49,6 +49,13 @@ class SessionServiceProvider extends ServiceProvider
                 return new DatabaseSessionHandler($base, $table);
             }
         );
+
+        Session::extend('file', function(array $configs = []){
+            $filesystem = Stroge::disk('local');
+
+            $path = RESOURCE . 'sessions/';
+            return new FileSessionHandler($filesystem, $path);
+        });
 
     }
 

@@ -56,16 +56,19 @@ class SessionServiceProvider extends ServiceProvider
             function (array $configs = []) {
                 $filesystem = Stroge::disk('local');
 
-                $path = Arr::get($configs, 'file.path', RESOURCE. 'sessions/');
+                $path = Arr::get($configs, 'file.path', RESOURCE . 'sessions/');
                 return new FileSessionHandler($filesystem, $path);
             }
         );
 
-        Session::extend('cache', function(){
-            $configs = Config::get('stroge.cache');
-            $driver = isset($configs['driver']) ? $configs['driver'] : '';
-            return new CacheSessionHandler((new \Anonym\Components\Cache\Cache())->driver($driver, $configs));
-        });
+        Session::extend(
+            'cache',
+            function () {
+                $configs = Config::get('stroge.cache');
+                $driver = isset($configs['driver']) ? $configs['driver'] : '';
+                return new CacheSessionHandler((new \Anonym\Components\Cache\Cache())->driver($driver, $configs));
+            }
+        );
 
     }
 

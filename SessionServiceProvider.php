@@ -31,8 +31,9 @@ class SessionServiceProvider extends ServiceProvider
     public function register()
     {
 
+        $session = new SessionManager(Config::get('stroge.session'));
 
-        Session::extend(
+        $session->extend(
             'cookie',
             function (array $configs = []) {
                 $lifetime = Arr::get($configs, 'cookie.lifetime', 1800);
@@ -42,7 +43,7 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        Session::extend(
+        $session->extend(
             'database',
             function (array $configs = []) {
                 $table = Arr::get($configs, 'database.table');

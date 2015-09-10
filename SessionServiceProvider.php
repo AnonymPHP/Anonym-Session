@@ -61,8 +61,10 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        Session::extend('cache', function(array $configs = []){
-
+        Session::extend('cache', function(){
+            $configs = Config::get('stroge.cache');
+            $driver = isset($configs['driver']) ? $configs['driver'] : '';
+            return new CacheSessionHandler((new \Anonym\Components\Cache\Cache())->driver($driver, $configs));
         });
 
     }

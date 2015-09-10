@@ -69,5 +69,9 @@ class SessionServiceProvider extends ServiceProvider
                 return new CacheSessionHandler((new Cache())->driver($driver, $configs));
             }
         );
+
+        $this->singleton('session', function(){
+            return new SessionManager(Config::get('stroge.session'));
+        });
     }
 }

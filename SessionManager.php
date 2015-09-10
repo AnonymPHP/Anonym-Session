@@ -36,12 +36,7 @@ class SessionManager
      * @var array
      */
     protected $extends;
-    /**
-     * the list of driver creator
-     *
-     * @var array
-     */
-    protected $creators;
+
 
     /**
      * the all configs
@@ -69,7 +64,7 @@ class SessionManager
      */
     public function extend($name = '', Closure $closure)
     {
-        $this->creators[$name] = $closure;
+        $this->extends[$name] = $closure;
 
         return $this;
     }
@@ -83,7 +78,7 @@ class SessionManager
      */
     public function driver($driver = '')
     {
-        if (isset($this->drivers[$driver])) {
+        if (isset($this->drivers[$driver]) || isset($this->extends[$driver])) {
             $driver = $this->buildDriver($driver);
 
             return $this->initalizeDriver($driver);

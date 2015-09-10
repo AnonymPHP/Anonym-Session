@@ -31,7 +31,7 @@ class SessionServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $session = new SessionManager(Config::get('stroge.session'));
+        $session = new SessionManager(Config::get('stroge.session'), App::make('crypt'));
 
         $session->extend(
             'cookie',

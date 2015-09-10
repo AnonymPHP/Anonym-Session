@@ -74,8 +74,8 @@ class SessionServiceProvider extends ServiceProvider
 
         $this->singleton(
             'session',
-            function () {
-                return new SessionManager(Config::get('stroge.session'));
+            function () use ($session) {
+                return $session;
             }
         );
 

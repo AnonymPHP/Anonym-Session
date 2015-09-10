@@ -127,6 +127,9 @@ class Stroge implements StrogeInterface
             $value = $this->getCrypt()->decode($value);
         }
 
+        if (false !== $data = @unserialize($value)) {
+            return $data;
+        }
         return $value;
     }
 
@@ -141,7 +144,7 @@ class Stroge implements StrogeInterface
     protected function registerToHandler($name, $value, $crypt = false)
     {
         if (is_array($value) || is_object($value)) {
-            $value = "[serialized].".serialize($value);
+            $value = serialize($value);
         }
 
         if (true === $crypt) {

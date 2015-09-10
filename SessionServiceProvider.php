@@ -63,7 +63,7 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        Session::extend(
+        $session->extend(
             'cache',
             function () {
                 $configs = Config::get('stroge.cache');

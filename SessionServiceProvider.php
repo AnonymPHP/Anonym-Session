@@ -53,7 +53,7 @@ class SessionServiceProvider extends ServiceProvider
             }
         );
 
-        Session::extend(
+        $session->extend(
             'file',
             function (array $configs = []) {
                 $filesystem = Stroge::disk('local');

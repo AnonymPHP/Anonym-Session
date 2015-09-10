@@ -16,7 +16,7 @@ use Anonym\Facades\Config;
 use Anonym\Support\Arr;
 use Anonym\Facades\App;
 use Anonym\Facades\Stroge;
-
+use Anonym\Components\Cache\Cache;
 /**
  * Class SessionServiceProvider
  * @package Anonym\Components\Session
@@ -66,7 +66,7 @@ class SessionServiceProvider extends ServiceProvider
             function () {
                 $configs = Config::get('stroge.cache');
                 $driver = isset($configs['driver']) ? $configs['driver'] : '';
-                return new CacheSessionHandler((new \Anonym\Components\Cache\Cache())->driver($driver, $configs));
+                return new CacheSessionHandler((new Cache())->driver($driver, $configs));
             }
         );
     }

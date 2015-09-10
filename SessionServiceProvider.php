@@ -10,8 +10,9 @@
 
 namespace Anonym\Components\Session;
 
+use Anonym\Bootstrap\ServiceProvider;
 
-class SessionServiceProvider
+class SessionServiceProvider extends ServiceProvider
 {
 
 }

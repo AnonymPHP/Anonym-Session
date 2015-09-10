@@ -69,7 +69,5 @@ class SessionServiceProvider extends ServiceProvider
                 return new CacheSessionHandler((new \Anonym\Components\Cache\Cache())->driver($driver, $configs));
             }
         );
-
     }
-
 }

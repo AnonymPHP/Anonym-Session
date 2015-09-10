@@ -141,7 +141,7 @@ class Stroge implements StrogeInterface
     protected function registerToHandler($name, $value, $crypt = false)
     {
         if (is_array($value) || is_object($value)) {
-            $value = serialize($value);
+            $value = "[serialized].".serialize($value);
         }
 
         if (true === $crypt) {

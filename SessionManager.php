@@ -12,7 +12,7 @@
 namespace Anonym\Components\Session;
 
 use Anonym\Components\Cookie\Cookie;
-use Anonym\Components\Crypt\AnonymCrypt;
+use Anonym\Components\Crypt\Crypter;
 
 use Closure;
 
@@ -59,7 +59,7 @@ class SessionManager
      *
      * @param array $configs
      */
-    public function __construct(array $configs = [], AnonymCrypt $crypt = null)
+    public function __construct(array $configs = [], Crypter $crypt = null)
     {
         $this->setConfigs($configs);
         $this->crypt = $crypt;
